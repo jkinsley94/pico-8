@@ -36,7 +36,7 @@ function _draw()
     
 end
 
---rando change
+--this build has the animation working correctly... for now.
 
 
 
