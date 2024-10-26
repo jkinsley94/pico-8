@@ -34,6 +34,7 @@ function _update()
     player.dy+=gravity
     player.dx*=friction
     player_anim()
+    player_move()
 end
 
 function _draw()
