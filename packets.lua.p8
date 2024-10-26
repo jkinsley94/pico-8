@@ -4,6 +4,8 @@ __lua__
 -- A game by fufferpuffer
 --2024
 
+--this one is the test build. Feel free to break it to shit!
+
 function _init()
     player = {
         x = 10,
