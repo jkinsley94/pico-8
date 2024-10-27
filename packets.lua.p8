@@ -9,7 +9,7 @@ __lua__
 function _init()
     player = {
         x = 10,
-        y = 10,
+        y = 110,
         dx = 0,
         dy = 0,
         max_dx=2,
@@ -23,7 +23,7 @@ function _init()
             can_dash = false
         },
         has_double_jumped = false,
-        frames = {0,2,4},
+        frames={0,1}
     }
     gravity=0.3
     friction=0.85
@@ -33,13 +33,12 @@ end
 function _update()
     player.dy+=gravity
     player.dx*=friction
-    player_anim()
     player_move()
 end
 
 function _draw()
     cls()
-    player_anim()
+    spr(player.sprite,player.x,player.y)
 
     --temp ground
     rectfill(0,118,127,127,13)
@@ -48,22 +47,8 @@ end
 
 --all player functions go here
 
-function player_anim()
-    if player.sprite<4.9 then
-        player.sprite=player.sprite+.4
-    else
-        player.sprite=0
-    end   
 
-    spr(player.frames[flr(player.sprite)], player.x, player.y, 2, 2)
-    --this seems like a useless function maybe as it goes along it will make more sense
-            
-end
-function player_states()
-    --state machine to handle various things like if the player dies, is running or idle
 
-    
-end
 
 function player_move()
     if (btn(0)) then player.dx-=player.acc end -- left
